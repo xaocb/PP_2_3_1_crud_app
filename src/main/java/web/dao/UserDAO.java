@@ -8,9 +8,9 @@ import java.util.List;
 @Component
 public interface UserDAO {
     List<User> index();
-    User show(int id);
+    User show(long id);
     void save(User user);
-    void update(int id, User updatedUser);
-    void delete(int id);
+    void update(long id, User updatedUser);
+    void delete(long id);
 
 }

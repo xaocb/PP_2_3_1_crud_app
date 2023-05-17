@@ -30,11 +30,15 @@
     <th>Surname</th>
     <th>Email</th>
   </tr>
-  <tr th:each="user : ${users}">
-    <td th:text="${user.firstName}"></td>
+  <tr th:each="user : ${userlist}">
+    <td> <a th:href="@{/users/{id}(id=${user.getId()})}" th:text="${user.firstName}"></a></td>
     <td th:text="${user.lastName}"></td>
     <td th:text="${user.email}"></td>
   </tr>
 </table>
+
+<br/>
+<hr/>
+<a th:href="@{/users/add}">Create new User</a>
 </body>
 </html>
