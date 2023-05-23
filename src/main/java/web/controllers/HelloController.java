@@ -18,7 +18,7 @@ public class HelloController {
         messages.add("This is first CRUD MVC tryout");
         messages.add("PP 2.3.1");
         model.addAttribute("messages", messages);
-        return "index";
+        return "helloPage";
     }
 
 }

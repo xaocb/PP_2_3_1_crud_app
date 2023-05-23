@@ -22,7 +22,7 @@ import java.util.Properties;
 @PropertySource("classpath:db.properties")
 @ComponentScan(value = "web")
 @EnableTransactionManagement
-public class AppConfig {
+public class DataBaseConfiguration {
 
     @Autowired
     private Environment env;
@@ -37,13 +37,13 @@ public class AppConfig {
         return dataSource;
     }
 
-    @Bean(name="entityManagerFactory")
+    @Bean(name = "entityManagerFactory")
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
         em.setPackagesToScan("web.models");
 
-        Properties props=new Properties();
+        Properties props = new Properties();
         props.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
         props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
         em.setPersistenceProviderClass(org.hibernate.jpa.HibernatePersistenceProvider.class);
