@@ -36,7 +36,7 @@ public class UsersController {
     @GetMapping("/{id}")
     public String getUserById(@PathVariable("id") int id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
-        return "findAllUsers";
+        return "getUserById";
     }
 
     @GetMapping("/add")
